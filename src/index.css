@@ -1,5 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--Font);
+}
+/*:root {
+  /* Primary */
+/*  --BrightBlue: hsl(220, 98%, 61%);
+  --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+/* Neutral */
+/* Light Theme */
+/*  --VeryLightGray: hsl(0, 0%, 98%);
+  --VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --LightGrayishBlue: hsl(233, 11%, 84%);
+  --DarkGrayishBlue: hsl(236, 9%, 61%);
+  --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+/* Dark Theme */
+/*  --VeryDarkBlue: hsl(235, 21%, 11%);
+  --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --LightGrayishBlue: hsl(234, 39%, 85%);
+  --LightGrayishBlueHover: hsl(236, 33%, 92%);
+  --DarkGrayishBlue: hsl(234, 11%, 52%);
+  --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --VeryDarkGrayishBlue: hsl(237, 14%, 26%);
+/* Typography */
+/* Body Copy */
+/*--Font: Josefin Sans, arial;
+--FontSize: 18px;
+/* Font */
+/*--W1: 400;
+--W2: 700; 
+}*/
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--VeryLightGrayishBlue) url(./images/bg-desktop-light.jpg) no-repeat;
+  background-size: 100% 250px;
+}
+#root {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  height: 100vh;
+  width: 40%;
+}
+.a-header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--VeryLightGray);
+}
+.a-header__title {
+  letter-spacing: 15px;
 }
