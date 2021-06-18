@@ -2,14 +2,14 @@
   /* Primary */
   --BrightBlue: hsl(220, 98%, 61%);
   --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
-/* Neutral */
-/* Light Theme */
+  /* Neutral */
+  /* Light Theme */
   --VeryLightGray: hsl(0, 0%, 98%);
   --VeryLightGrayishBlue: hsl(236, 33%, 92%);
   --LightGrayishBlue: hsl(233, 11%, 84%);
   --DarkGrayishBlue: hsl(236, 9%, 61%);
   --VeryDarkGrayishBlue: hsl(235, 19%, 35%);
-/* Dark Theme */
+  /* Dark Theme */
   --VeryDarkBlue: hsl(235, 21%, 11%);
   --VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
   --LightGrayishBlue: hsl(234, 39%, 85%);
@@ -17,11 +17,71 @@
   --DarkGrayishBlue: hsl(234, 11%, 52%);
   --VeryDarkGrayishBlue: hsl(233, 14%, 35%);
   --VeryDarkGrayishBlue: hsl(237, 14%, 26%);
-/* Typography */
-/* Body Copy */
---Font: 'Josefin Sans', sans-serif;
---FontSize: 18px;
-/* Font */
---W1: 400;
---W2: 700;
+  /* Typography */
+  /* Body Copy */
+  --Font: 'Josefin Sans', sans-serif;
+  --FontSize: 18px;
+  /* Font */
+  --W1: 400;
+  --W2: 700;
 }
+.a-header {
+  margin-top: 65px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--VeryLightGray);
+}
+.a-header__title {
+  letter-spacing: 15px;
+}
+.b-taskCreator {
+  border-radius: 10px;
+  background: var(--VeryLightGray);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.circle {
+  margin-left: 30px;
+  border: 1px solid var(--LightGrayishBlue);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+.b-taskCreator input {
+  background: var(--VeryLightGray);
+  font-size: var(--Font);
+  font-weight: 900;
+  width: 85%;
+  padding: 20px 0 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: text;
+}
+.b-taskCreator input:hover {
+  cursor: pointer;
+}
+.b-taskCreator input:focus {
+  cursor: text;
+  caret-color: var(--BrightBlue);
+  outline: 0;
+}
+.task0 {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.tasks {
+  margin-top: 40px;
+  background: var(--VeryLightGray);
+  font-size: var(--Font);
+  height: 51px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.tasks p {
+  margin-left: 25px;
+  color: var(--VeryDarkGrayishBlue);
+}
+
