@@ -5,17 +5,24 @@ function InputTask(props) {
     const updateValue = event => {
         setValue(event.target.value)
     }    
-    const getTask = key => {
-        if(key.charCode === 13) props.sendTask(value)
+    const getTaskKey = key => {
+        if(key.charCode === 13) {
+            props.sendTask(value)
+            setValue('')
+        }
+    }
+    const getTask = () => {
+        props.sendTask(value)
+        setValue('')    
     }
     return (    
         <div className="b-taskCreator">
-            <div className="circle"></div> 
+            <div className="circle" onClick={getTask}></div> 
             <input type="text" 
                 placeholder="Create a new todo..." 
                 value={value} 
                 onChange={updateValue} 
-                onKeyPress={getTask}
+                onKeyPress={getTaskKey}
             />
         </div>
     )
