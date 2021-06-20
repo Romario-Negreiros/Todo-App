@@ -1,7 +1,7 @@
 :root {
   /* Primary */
   --BrightBlue: hsl(220, 98%, 61%);
-  --CheckBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --CheckBackground: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
   /* Neutral */
   /* Light Theme */
   --VeryLightGray: hsl(0, 0%, 98%);
@@ -35,24 +35,33 @@
   letter-spacing: 15px;
 }
 .b-taskCreator {
-  border-radius: 10px;
+  width: 510px;
+  border-radius: 5px;
   background: var(--VeryLightGray);
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 .circle {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 30px;
   border: 1px solid var(--LightGrayishBlue);
   border-radius: 50%;
   width: 25px;
   height: 25px;
 }
+.completed {
+  background: var(--CheckBackground);
+  border: none;
+}
 .b-taskCreator input {
   background: var(--VeryLightGray);
   font-size: var(--Font);
-  font-weight: 900;
+  font-weight: var(--W2);
   width: 85%;
   padding: 20px 0 15px;
   border: none;
@@ -70,18 +79,55 @@
 .task0 {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  margin-top: 40px;
 }
 .tasks {
-  margin-top: 40px;
+  list-style: none;
   background: var(--VeryLightGray);
-  font-size: var(--Font);
+  width: 510px;
   height: 51px;
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px 0 0;
+  border-bottom: 1px solid var(--LightGrayishBlue);
+  transition: .2s;
+}
+.tasks:hover .delete {
+  visibility: visible;
+  transform: translateX(0px);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.tasks :nth-child(1) {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 .tasks p {
-  margin-left: 25px;
-  color: var(--VeryDarkGrayishBlue);
+  margin-left: 22px;
+  width: 340px;
+  font-weight: var(--W2);
+  overflow: auto;
 }
-
+.tasks p del {
+  opacity: 0.2;
+}
+.tasks p::-webkit-scrollbar {
+  height: 3px;
+}
+.tasks p::-webkit-scrollbar-track {
+  background: var(--LightGrayishBlue);
+}
+.tasks p::-webkit-scrollbar-thumb {
+  background: var(--BrightBlue);
+}
+.delete {
+  visibility: hidden;
+  transform: translateX(50px);
+  width: 0px;
+  height: 0px;
+  transition: .3s;
+}
