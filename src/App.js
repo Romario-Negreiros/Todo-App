@@ -4,9 +4,12 @@ import InputTask from './InputTask.js'
 import Task from './Task.js'
 import Manager from './Manager.js'
 
+let state = ''
 function App() {
   const [toDo, setToDo] = useState('')
   const [states, setState] = useState('')
+  const [filters, setFilter] = useState('')
+  const tasksList = []
   // Function that receives the task from the input component
   // And then refresh the tasks
   const sendTask = task => {
@@ -35,30 +38,92 @@ function App() {
       setState(updateStates)
     }
   }
-  // Creating the task components, and passing the props
-  const getAllTasks = [...toDo]
-  const tasksList = getAllTasks.map((v, i) => {
-    if (states.includes(v)) {
-      return <Task
-        key={i} index={i} task={v}
-        deleteTask={deleteTask}
-        taskHasBeenDone={taskHasBeenDone}
-        completed={true} />
-    } else {
-      return <Task
-        key={i} index={i} task={v}
-        deleteTask={deleteTask}
-        taskHasBeenDone={taskHasBeenDone}
-        completed={false} />
+  // Management functions
+  const seeAllTasks = () => {
+    state = 'All Tasks'
+    setFilter(toDo)
+    console.log('Now seeing all tasks!')
+  }
+  const seeActiveTasks = () => {
+    state = 'Active Tasks'
+    if (toDo === '') console.error('Todo list is empty')
+    else {
+      const activeTasks = toDo.filter(v => !states.includes(v))
+      setFilter(activeTasks)
+      console.log('Now seeing active tasks only!')
     }
-  })
+  }
+  const seeCompletedTasks = () => {
+    state = 'Completed Tasks'
+    if (toDo === '') console.error('Todo list is still empty')
+    else {
+      const completedTasks = toDo.filter(v => states.includes(v))
+      setFilter(completedTasks)
+      console.log('Now seeing completed tasks only!')
+    }
+  }
+  const clearCompletedTasks = () => {
+    state = ''
+    if (toDo === '') console.error('Todo list is still empty')
+    else {
+      const clearCompletedTasks = toDo.filter(v => !states.includes(v)) 
+      setToDo(clearCompletedTasks)
+      console.log('Completed tasks deleted from tasks list!')
+    }
+  }
+  // Creating the task components, and passing the props
+  if (state === '') {
+    console.log('eu aqui')
+    const getAllTasks = [...toDo]
+    getAllTasks.forEach((v, i) => {
+      if (states.includes(v)) {
+        tasksList.push(<Task
+          key={i} index={i} task={v}
+          deleteTask={deleteTask}
+          taskHasBeenDone={taskHasBeenDone}
+          completed={true}
+          state={state} />)
+      } else {
+        tasksList.push(<Task
+          key={i} index={i} task={v}
+          deleteTask={deleteTask}
+          taskHasBeenDone={taskHasBeenDone}
+          completed={false}
+          state={state} />)
+      }
+    })
+  } else {
+    const getAllTasks = [...filters]
+    getAllTasks.forEach((v, i) => {
+      if (states.includes(v)) {
+        tasksList.push(<Task
+          key={i} index={i} task={v}
+          deleteTask={deleteTask}
+          taskHasBeenDone={taskHasBeenDone}
+          completed={true}
+          state={state} />)
+      } else {
+        tasksList.push(<Task
+          key={i} index={i} task={v}
+          deleteTask={deleteTask}
+          taskHasBeenDone={taskHasBeenDone}
+          completed={false}
+          state={state} />)
+      }
+    })
+  }
   return (
     <section>
       <InputTask sendTask={sendTask} />
 
       <ul className="c-tasksList">
-
         {tasksList}
+        <Manager
+          length={toDo.length}
+          seeAllTasks={seeAllTasks}
+          seeActiveTasks={seeActiveTasks}
+          seeCompletedTasks={seeCompletedTasks}
+          clearCompletedTasks={clearCompletedTasks} />
       </ul>
     </section>
   )
