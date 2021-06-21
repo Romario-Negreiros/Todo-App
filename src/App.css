@@ -76,10 +76,12 @@
   caret-color: var(--BrightBlue);
   outline: 0;
 }
+.c-tasksList {
+  margin-top: 40px;
+}
 .task0 {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  margin-top: 40px;
 }
 .tasks {
   list-style: none;
@@ -107,6 +109,7 @@
   align-items: center;
 }
 .tasks p {
+  color: var(--VeryDarkBlue);
   margin-left: 22px;
   width: 340px;
   font-weight: var(--W2);
@@ -130,4 +133,32 @@
   width: 0px;
   height: 0px;
   transition: .3s;
+}
+.manager {
+  width: 510px;
+  height: 51px;
+  padding: 0 25px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: var(--VeryLightGray);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.manager p {
+  cursor: pointer;
+  color: var(--LightGrayishBlue);
+  font-weight: var(--W2);
+}
+.manager p:hover {
+  color: var(--DarkGrayishBlue);
+}
+.manager p:active {
+  color: var(--BrightBlue);
+}
+.manager-actions {
+  display: flex;
+}
+.manager-actions p {
+  margin-left: 20px;
 }
