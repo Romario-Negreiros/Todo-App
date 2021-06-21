@@ -13,11 +13,13 @@ function App() {
   // Function that receives the task from the input component
   // And then refresh the tasks
   const sendTask = task => {
+    state = ''
     const getAllTasks = [...toDo, task]
     setToDo(getAllTasks)
   }
   // Function to delete a task
   const deleteTask = (index, task) => {
+    state = ''
     const getAllTasks = [...toDo]
     getAllTasks.splice(index, 1)
     setToDo(getAllTasks)
