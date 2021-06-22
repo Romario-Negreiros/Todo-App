@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Header from './Header.js';
 import InputTask from './InputTask.js'
 import Task from './Task.js'
 import Manager from './Manager.js'
@@ -9,6 +10,8 @@ function App() {
   const [toDo, setToDo] = useState('')
   const [states, setState] = useState('')
   const [filters, setFilter] = useState('')
+  const [theme, setTheme] = useState('')
+  console.log(theme)
   const tasksList = []
   // Function that receives the task from the input component
   // And then refresh the tasks
@@ -30,7 +33,7 @@ function App() {
   }
   const taskHasBeenDone = task => {
     const getAllTasks = [...toDo]
-    const taskDone = getAllTasks.find(v => v == task)
+    const taskDone = getAllTasks.find(v => v === task)
     const updateStates = [...states]
     if (updateStates.includes(taskDone)) {
       const removeState = updateStates.filter(v => v !== taskDone)
@@ -68,7 +71,7 @@ function App() {
     state = ''
     if (toDo === '') console.error('Todo list is still empty')
     else {
-      const clearCompletedTasks = toDo.filter(v => !states.includes(v)) 
+      const clearCompletedTasks = toDo.filter(v => !states.includes(v))
       setToDo(clearCompletedTasks)
       console.log('Completed tasks deleted from tasks list!')
     }
@@ -80,6 +83,7 @@ function App() {
     getAllTasks.forEach((v, i) => {
       if (states.includes(v)) {
         tasksList.push(<Task
+          theme={theme}
           key={i} index={i} task={v}
           deleteTask={deleteTask}
           taskHasBeenDone={taskHasBeenDone}
@@ -87,6 +91,7 @@ function App() {
           state={state} />)
       } else {
         tasksList.push(<Task
+          theme={theme}
           key={i} index={i} task={v}
           deleteTask={deleteTask}
           taskHasBeenDone={taskHasBeenDone}
@@ -99,6 +104,7 @@ function App() {
     getAllTasks.forEach((v, i) => {
       if (states.includes(v)) {
         tasksList.push(<Task
+          theme={theme}
           key={i} index={i} task={v}
           deleteTask={deleteTask}
           taskHasBeenDone={taskHasBeenDone}
@@ -106,6 +112,7 @@ function App() {
           state={state} />)
       } else {
         tasksList.push(<Task
+          theme={theme}
           key={i} index={i} task={v}
           deleteTask={deleteTask}
           taskHasBeenDone={taskHasBeenDone}
@@ -115,19 +122,21 @@ function App() {
     })
   }
   return (
-    <section>
-      <InputTask sendTask={sendTask} />
-
-      <ul className="c-tasksList">
-        {tasksList}
-        <Manager
-          length={toDo.length}
-          seeAllTasks={seeAllTasks}
-          seeActiveTasks={seeActiveTasks}
-          seeCompletedTasks={seeCompletedTasks}
-          clearCompletedTasks={clearCompletedTasks} />
-      </ul>
-    </section>
+    <div>
+      <Header setTheme={setTheme} theme={theme} toDo={toDo} />
+      <section>
+        <InputTask sendTask={sendTask} />
+        <ul className="c-tasksList">
+          {tasksList}
+          <Manager
+            length={toDo.length}
+            seeAllTasks={seeAllTasks}
+            seeActiveTasks={seeActiveTasks}
+            seeCompletedTasks={seeCompletedTasks}
+            clearCompletedTasks={clearCompletedTasks} />
+        </ul>
+      </section>
+    </div>
   )
 }
 

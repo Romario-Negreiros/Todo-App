@@ -34,6 +34,21 @@
 .a-header__title {
   letter-spacing: 15px;
 }
+.a-header__switch {
+  cursor: pointer;
+}
+.light-theme {
+  display: none;
+}
+.moon-inative {
+  display: none;
+}
+.sun-active {
+  display: block;
+}
+.a-header ~ section {
+  margin-top: 25px;
+}
 .b-taskCreator {
   width: 510px;
   border-radius: 5px;
@@ -42,6 +57,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  transition: .3s;
 }
 .circle {
   cursor: pointer;
@@ -67,6 +83,7 @@
   border: none;
   border-radius: 5px;
   cursor: text;
+  transition: .3s;
 }
 .b-taskCreator input:hover {
   cursor: pointer;
@@ -94,9 +111,9 @@
   align-items: center;
   padding: 0 30px 0 0;
   border-bottom: 1px solid var(--LightGrayishBlue);
-  transition: .2s;
+  transition: .3s;
 }
-.tasks:hover .delete {
+.tasks:hover .delete, .tasks:hover .deleteDark {
   visibility: visible;
   transform: translateX(0px);
   width: 20px;
@@ -134,6 +151,20 @@
   height: 0px;
   transition: .3s;
 }
+.deleteDark {
+  display: none;
+  visibility: hidden;
+  transform: translateX(50px);
+  width: 0px;
+  height: 0px;
+  transition: .3s;
+}
+.delete-dark-mode {
+  display: none !important;
+}
+.deleteDark-dark-mode {
+  display: block;
+}
 .manager {
   width: 510px;
   height: 51px;
@@ -144,16 +175,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: .3s;
 }
-.manager p {
+.items-left {
+  color: var(--LightGrayishBlue);
+  font-weight: var(--W2);
+}
+.manager-actions p, .manager-actions ~ p {
   cursor: pointer;
   color: var(--LightGrayishBlue);
   font-weight: var(--W2);
 }
-.manager p:hover {
+.manager-actions p:hover, .manager-actions ~ p:hover {
   color: var(--DarkGrayishBlue);
 }
-.manager p:active {
+.manager-actions p:active, .manager-actions ~ p:active {
   color: var(--BrightBlue);
 }
 .manager-actions {
@@ -161,4 +197,28 @@
 }
 .manager-actions p {
   margin-left: 20px;
+}
+.manager-dark-mode, .taskCreator-dark-mode, .taskCreator-dark-mode input, .tasks-dark-mode {
+  background: var(--VeryDarkDesaturatedBlue);
+}
+.taskCreator-dark-mode input, .tasks-dark-mode p {
+  color: var(--LightGrayishBlue);
+}
+.taskCreator-dark-mode input::placeholder {
+  color: var(--DarkGrayishBlue);
+}
+.taskCreator-dark-mode .circle, .tasks-dark-mode .circle {
+  border: 1px solid var(--VeryDarkGrayishBlue);
+}
+.tasks-dark-mode {
+  border-bottom: 1px solid var(--VeryDarkGrayishBlue);
+}
+.manager-dark-mode p {
+  color: var(--DarkGrayishBlue) !important;
+}
+.manager-dark-mode div p:hover, .manager-dark-mode div ~ p:hover {
+  color: var(--LightGrayishBlue) !important;
+}
+.manager-dark-mode div p:active, .manager-dark-mode div ~ p:active {
+  color: var(--BrightBlue) !important;
 }

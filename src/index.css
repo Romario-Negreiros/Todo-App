@@ -13,6 +13,11 @@ body {
   background: var(--VeryLightGrayishBlue) url(./images/bg-desktop-light.jpg) no-repeat;
   background-size: 100% 250px;
 }
+/* Body on dark mode */
+.body-dark-mode {
+  background: var(--VeryDarkBlue) url(./images/bg-desktop-dark.jpg) no-repeat;
+  background-size: 100% 250px;
+}
 #root {
   display: flex;
   flex-flow: column wrap;

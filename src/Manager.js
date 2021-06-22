@@ -5,7 +5,7 @@ function Manager(props) {
 
     return (
         <li className="manager">
-            <p>{props.length} items left</p>
+            <p className="items-left">{props.length} items left</p>
             <div className="manager-actions">
                 <p onClick={props.seeAllTasks}>All</p>
                 <p onClick={props.seeActiveTasks}>Active</p>
