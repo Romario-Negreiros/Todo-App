@@ -5,13 +5,13 @@ import DeleteDark from './images/icon-cross-dark.svg'
 import Check from './images/icon-check.svg'
 
 function Task(props) {
-    if(!props.completed) {
+    if(!props.checked) {
     return (
         <li className={`task${props.index} tasks tasks-${props.theme}`}>
             <div>
                 <div 
                     className="circle" 
-                    onClick={() => props.taskHasBeenDone(props.task)}>
+                    onClick={() => props.taskHasBeenDone(props.index)}>
                     <img src="" alt="" />
                 </div>
                 <p>{props.task}</p>
@@ -20,21 +20,21 @@ function Task(props) {
                 <img className={`delete delete-${props.theme}`}
                     src={Delete}
                     alt="delete"
-                    onClick={() => props.deleteTask(props.index, props.task)} />
+                    onClick={() => props.deleteTask(props.index)} />
                 <img className={`deleteDark deleteDark-${props.theme}`}
                     src={DeleteDark}
                     alt="deleteDark"
-                    onClick={() => props.deleteTask(props.index, props.task)} />
+                    onClick={() => props.deleteTask(props.index)} />
             </div>
         </li>
     )
     } else {
         return (
-            <li className={`task${props.index} tasks ${props.theme}`}>
+            <li className={`task${props.index} tasks tasks-${props.theme}`}>
                 <div>
                     <div 
                         className="circle completed" 
-                        onClick={() => props.taskHasBeenDone(props.task)}>
+                        onClick={() => props.taskHasBeenDone(props.index)}>
                         <img src={Check} alt="checked" />
                     </div>
                     <p><del>{props.task}</del></p>
@@ -43,11 +43,11 @@ function Task(props) {
                     <img className="delete"
                         src={Delete}
                         alt="delete"
-                        onClick={() => props.deleteTask(props.index, props.task)} />
+                        onClick={() => props.deleteTask(props.index)} />
                     <img className="deleteDark"
                         src={DeleteDark}
                         alt="deleteDark"
-                        onClick={() => props.deleteTask(props.index, props.task)} />
+                        onClick={() => props.deleteTask(props.index)} />
                 </div>
             </li>
         )   
