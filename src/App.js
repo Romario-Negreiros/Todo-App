@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './App.css';
 import Header from './Header.js';
 import InputTask from './InputTask.js'
@@ -23,12 +24,12 @@ function App() {
   }
   // Function to delete a task
   const deleteTask = index => {
-    if(typeof(index) === 'number') {
+    if (typeof (index) === 'number') {
       const getAllTasks = toDo.filter(v => v.id !== index)
       setToDo(getAllTasks)
-    } else if(typeof(index) === 'string') {
+    } else if (typeof (index) === 'string') {
       const getAllTasks = toDo.filter(v => {
-        if(v.checked === true) {
+        if (v.checked === true) {
           return false
         } else return v
       })
@@ -52,39 +53,72 @@ function App() {
     setToDo(getAllTasks)
   }
   // Creating the task components, and passing the props
-  const setTasks = v => {
-    tasksList.push(<Task
-      key={v.id} index={v.id} task={v.task} checked={v.checked}
-      theme={theme}
-      deleteTask={deleteTask}
-      taskHasBeenDone={taskHasBeenDone} />)
+  const setTasks = (v, i) => {
+    tasksList.push
+      (
+        <Draggable draggableId={`${v.id}`} key={v.id} index={i}>
+          {provided => (
+            <Task
+              innerRef={provided.innerRef}
+              provided={provided}
+              key={v.id} index={v.id}
+              task={v.task} checked={v.checked}
+              theme={theme}
+              deleteTask={deleteTask}
+              taskHasBeenDone={taskHasBeenDone}
+            >
+            </Task>
+          )}
+        </Draggable>
+      )
   }
   const getAllTasks = [...toDo]
-  getAllTasks.forEach(v => {
+  getAllTasks.forEach((v, i) => {
     switch (v.filter) {
-      case '': setTasks(v)
+      case '': setTasks(v, i)
         break
-      case 'Active': if(v.checked === false) setTasks(v)
+      case 'Active': if (v.checked === false) setTasks(v, i)
         break
-      case 'Completed': if(v.checked === true) setTasks(v)
+      case 'Completed': if (v.checked === true) setTasks(v, i)
         break
+      default: console.error('Filtro inválido')
     }
   })
 
+  // React dnd functions
+  const onDragEnd = (result) => {
+    try {
+      const getAllTasks = [...toDo]
+      const [removedElement] = getAllTasks.splice(result.source.index, 1)
+      getAllTasks.splice(result.destination.index, 0, removedElement)
+      setToDo(getAllTasks)
+    }
+    catch (err) { console.error(err.message) }
+  }
   return (
     <div>
       <Header setTheme={setTheme} theme={theme} toDo={toDo} />
       <section>
         <InputTask sendTask={sendTask} />
         <ul className="c-tasksList">
-          {tasksList}
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="tasks">
+              {(provided) => (
+                <ul ref={provided.innerRef}
+                  {...provided.droppableProps}>
+                  {tasksList}
+                  {provided.placeholder}
+                </ul>
+              )}
+            </Droppable>
+          </DragDropContext>
           <Manager
             length={toDo.length}
             setFilterAs={setFilterAs}
             clearCompletedTasks={deleteTask} />
         </ul>
       </section>
-    </div>
+    </div >
   )
 }
 

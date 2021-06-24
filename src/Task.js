@@ -5,9 +5,15 @@ import DeleteDark from './images/icon-cross-dark.svg'
 import Check from './images/icon-check.svg'
 
 function Task(props) {
+    const { provided, innerRef } = props
     if(!props.checked) {
     return (
-        <li className={`task${props.index} tasks tasks-${props.theme}`}>
+        <li 
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            ref={innerRef}
+            className={`task${props.index} tasks tasks-${props.theme}`}       
+            >
             <div>
                 <div 
                     className="circle" 
