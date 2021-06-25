@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import swal from '@sweetalert/with-react'
 import './App.css';
 import Header from './Header.js';
 import InputTask from './InputTask.js'
 import Task from './Task.js'
 import Manager from './Manager.js'
+
 
 function App() {
   const [toDo, setToDo] = useState('')
@@ -13,14 +15,28 @@ function App() {
   // Function that receives the task from the input component
   // And then refresh the tasks
   const sendTask = task => {
-    const getAllTasks = [...toDo]
-    getAllTasks.push({
-      id: getAllTasks.length,
-      task: task,
-      checked: false,
-      filter: ''
+    if (task !== '') {
+      if (task.length < 46) {
+        const getAllTasks = [...toDo]
+        getAllTasks.push({
+          id: getAllTasks.length,
+          task: task,
+          checked: false,
+          filter: ''
+        })
+        setToDo(getAllTasks)
+      } else swal({
+        title: "Warning",
+        text: "You can't set a task with more than 45 characters, shrink it up",
+        icon: "error",
+        button: "Ok, I got it"
+      })
+    } else swal({
+      title: "Warning",
+      text: "You can't set an empty task",
+      icon: "error",
+      button: "Ok, I got it",
     })
-    setToDo(getAllTasks)
   }
   // Function to delete a task
   const deleteTask = index => {
