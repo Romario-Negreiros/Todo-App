@@ -20,40 +20,42 @@ function Task(props) {
                     onClick={() => props.taskHasBeenDone(props.index)}>
                     <img src="" alt="" />
                 </div>
-                <p>{props.task}</p>
             </div>
-            <div>
+            <p>{props.task}</p>
+            <div className="adiv" onClick={() => props.deleteTask(props.index)}>
                 <img className={`delete delete-${props.theme}`}
                     src={Delete}
-                    alt="delete"
-                    onClick={() => props.deleteTask(props.index)} />
+                    alt="delete" />
                 <img className={`deleteDark deleteDark-${props.theme}`}
                     src={DeleteDark}
-                    alt="deleteDark"
-                    onClick={() => props.deleteTask(props.index)} />
+                    alt="deleteDark" />
             </div>
         </li>
     )
     } else {
         return (
-            <li className={`task${props.index} tasks tasks-${props.theme}`}>
+            <li 
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+                ref={innerRef}
+                className={`task${props.index} tasks tasks-${props.theme}`}>
                 <div>
                     <div 
                         className="circle completed" 
                         onClick={() => props.taskHasBeenDone(props.index)}>
                         <img src={Check} alt="checked" />
                     </div>
-                    <p><del>{props.task}</del></p>
                 </div>
-                <div>
+                <p><del>{props.task}</del></p>
+                <div className="adiv" onClick={() => props.deleteTask(props.index)}>
                     <img className="delete"
                         src={Delete}
                         alt="delete"
-                        onClick={() => props.deleteTask(props.index)} />
+                    />
                     <img className="deleteDark"
                         src={DeleteDark}
                         alt="deleteDark"
-                        onClick={() => props.deleteTask(props.index)} />
+                    />
                 </div>
             </li>
         )   

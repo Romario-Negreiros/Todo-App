@@ -96,7 +96,7 @@ function App() {
     catch (err) { console.error(err.message) }
   }
   return (
-    <div>
+    <div className="app">
       <Header setTheme={setTheme} theme={theme} toDo={toDo} />
       <section>
         <InputTask sendTask={sendTask} />
@@ -112,13 +112,16 @@ function App() {
               )}
             </Droppable>
           </DragDropContext>
-          <Manager
-            length={toDo.length}
-            setFilterAs={setFilterAs}
-            clearCompletedTasks={deleteTask} />
         </ul>
+        <Manager
+          toDo={toDo}
+          setToDo={setToDo}
+          length={toDo.length}
+          setFilterAs={setFilterAs}
+          clearCompletedTasks={deleteTask} />
       </section>
-    </div >
+      <p className="dragndrop">Drag and drop to reorder list</p>
+    </div>
   )
 }
 
