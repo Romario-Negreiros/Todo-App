@@ -25,8 +25,16 @@
   --W1: 400;
   --W2: 700;
 }
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
 .a-header {
-  margin-top: 65px;
+  margin-top: 60px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   color: var(--VeryLightGray);
@@ -48,9 +56,11 @@
 }
 .a-header ~ section {
   margin-top: 25px;
+  width: 100%;
 }
 .b-taskCreator {
-  width: 510px;
+  width: 100%;
+  height: 51px;
   border-radius: 5px;
   background: var(--VeryLightGray);
   display: flex;
@@ -59,12 +69,28 @@
   justify-content: space-between;
   transition: .3s;
 }
+.b-taskCreator input {
+  background: var(--VeryLightGray);
+  font-size: var(--Font);
+  font-weight: var(--W2);
+  width: 87%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: text;
+  transition: .3s;
+}
+.b-taskCreator input:focus {
+  cursor: text;
+  caret-color: var(--BrightBlue);
+  outline: 0;
+}
 .circle {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 30px;
+  margin-left: 25px;
   border: 1px solid var(--LightGrayishBlue);
   border-radius: 50%;
   width: 25px;
@@ -74,90 +100,31 @@
   background: var(--CheckBackground);
   border: none;
 }
-.b-taskCreator input {
-  background: var(--VeryLightGray);
-  font-size: var(--Font);
-  font-weight: var(--W2);
-  width: 85%;
-  padding: 20px 0 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: text;
-  transition: .3s;
-}
-.b-taskCreator input:hover {
-  cursor: pointer;
-}
-.b-taskCreator input:focus {
-  cursor: text;
-  caret-color: var(--BrightBlue);
-  outline: 0;
-}
 .c-tasksList {
+  width: 100%;
+  overflow: hidden;
   margin-top: 40px;
-}
-.task0 {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 .tasks {
   list-style: none;
   background: var(--VeryLightGray);
-  width: 510px;
+  width: 100%;
   height: 51px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px 0 0;
+  padding: 0 25px 0 0;
   border-bottom: 1px solid var(--LightGrayishBlue);
   transition: .3s;
 }
-.tasks:hover .delete, .tasks:hover .deleteDark {
-  visibility: visible;
-  transform: translateX(0px);
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-.tasks :nth-child(1) {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.tasks p {
-  color: var(--VeryDarkBlue);
-  margin-left: 22px;
-  width: 340px;
-  font-weight: var(--W2);
-  overflow: auto;
-}
-.tasks p del {
-  opacity: 0.2;
-}
-.tasks p::-webkit-scrollbar {
-  height: 3px;
-}
-.tasks p::-webkit-scrollbar-track {
-  background: var(--LightGrayishBlue);
-}
-.tasks p::-webkit-scrollbar-thumb {
-  background: var(--BrightBlue);
-}
 .delete {
-  visibility: hidden;
-  transform: translateX(50px);
-  width: 0px;
-  height: 0px;
-  transition: .3s;
+  display: block;
 }
 .deleteDark {
   display: none;
-  visibility: hidden;
-  transform: translateX(50px);
-  width: 0px;
-  height: 0px;
-  transition: .3s;
 }
 .delete-dark-mode {
   display: none !important;
@@ -165,40 +132,88 @@
 .deleteDark-dark-mode {
   display: block;
 }
+.tasks:hover .delete, .tasks:hover .deleteDark {
+  visibility: visible;
+  transform: translate(0px, 3px);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.tasks p {
+  text-indent: 6px;
+  font-weight: var(--W2);
+  color: var(--VeryDarkBlue);
+  width: 76%;
+  overflow: hidden;
+}
+.tasks p del {
+  opacity: 0.2;
+}
 .manager {
-  width: 510px;
-  height: 51px;
-  padding: 0 25px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background: var(--VeryLightGray);
+  width: 100%;
+  height: 122px;
+  border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   transition: .3s;
+  overflow: hidden;
+}
+.manager-up {
+  background: var(--VeryLightGray);
+  width: 100%;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+.manager-up :nth-child(2) {
+  cursor: pointer;
+  color: var(--DarkGrayishBlue);
+  font-weight: var(--W2);
+}
+.manager-actions {
+  background: var(--VeryLightGray);
+  width: 100%;
+  height: 51px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+.manager-actions :nth-child(1) {
+  margin-right: 25px;
+}
+.manager-actions :nth-child(3) {
+  margin-left: 25px;
 }
 .items-left {
-  color: var(--LightGrayishBlue);
+  color: var(--DarkGrayishBlue);
   font-weight: var(--W2);
 }
 .manager-actions p, .manager-actions ~ p {
   cursor: pointer;
-  color: var(--LightGrayishBlue);
+  color: var(--DarkGrayishBlue);
   font-weight: var(--W2);
 }
 .manager-actions p:hover, .manager-actions ~ p:hover {
-  color: var(--DarkGrayishBlue);
+  color: var(--VeryDarkGrayishBlue);
 }
 .manager-actions p:active, .manager-actions ~ p:active {
   color: var(--BrightBlue);
 }
-.manager-actions {
-  display: flex;
+.dragndrop {
+  color: var(--DarkGrayishBlue);
+  font-weight: var(--W2);
+  text-align: center;
+  margin-top: 35px;
 }
-.manager-actions p {
-  margin-left: 20px;
-}
-.manager-dark-mode, .taskCreator-dark-mode, .taskCreator-dark-mode input, .tasks-dark-mode {
+.manager-dark-mode .manager-actions, .manager-dark-mode .manager-up,
+.taskCreator-dark-mode, 
+.taskCreator-dark-mode input, .tasks-dark-mode {
   background: var(--VeryDarkDesaturatedBlue);
 }
 .taskCreator-dark-mode input, .tasks-dark-mode p {
@@ -214,11 +229,71 @@
   border-bottom: 1px solid var(--VeryDarkGrayishBlue);
 }
 .manager-dark-mode p {
-  color: var(--DarkGrayishBlue) !important;
+  color: var(--DarkGrayishBlue);
 }
 .manager-dark-mode div p:hover, .manager-dark-mode div ~ p:hover {
-  color: var(--LightGrayishBlue) !important;
+  color: var(--LightGrayishBlue);
 }
 .manager-dark-mode div p:active, .manager-dark-mode div ~ p:active {
-  color: var(--BrightBlue) !important;
+  color: var(--BrightBlue);
+}
+@media (min-width: 459px) {
+  .delete {
+    visibility: hidden;
+    width: 20px;
+    transform: translate(35px, 3px);
+    transition: .3s;
+  }
+  .deleteDark {
+    display: none;
+    visibility: hidden;
+    width: 20px;
+    transform: translate(35px, 3px);
+    transition: .3s;
+  }
+  .delete-dark-mode {
+    display: none !important;
+  }
+  .deleteDark-dark-mode {
+    display: block;
+  }
+  .a-header, .tasks, .b-taskCreator, .a-header ~ section, .manager {
+    width: 510px;
+  }
+  .manager {
+    height: 51px;
+    padding: 0 25px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: var(--VeryLightGray);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+  }
+  .manager-actions {
+    display: flex;
+    width: fit-content;
+    margin-top: 0px;
+  }
+  .manager-actions :nth-child(1) {
+    margin-right: 15px;
+  }
+  .manager-actions :nth-child(3) {
+    margin-left: 15px;
+  }
+  .c-tasksList {
+    width: 510px;
+  }
+  .manager-dark-mode {
+    background: var(--VeryDarkDesaturatedBlue);
+  }
+}
+@media (min-width: 459px) and (max-width: 550px) {
+  .a-header, .tasks, .b-taskCreator, .a-header ~ section, .manager {
+    width: 420px !important;
+  }
 }

@@ -6,22 +6,27 @@
   font-family: var(--Font);
 }
 body {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: var(--VeryLightGrayishBlue) url(./images/bg-desktop-light.jpg) no-repeat;
   background-size: 100% 250px;
+}
+#root {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 15px;
 }
 /* Body on dark mode */
 .body-dark-mode {
   background: var(--VeryDarkBlue) url(./images/bg-desktop-dark.jpg) no-repeat;
   background-size: 100% 250px;
 }
-#root {
-  display: flex;
-  flex-flow: column wrap;
-  gap: 25px;
-  height: 100vh;
-  max-width: 510px;
+@media (max-width: 600px) {
+  body {
+    background: var(--VeryLightGrayishBlue) url(./images/bg-mobile-light.jpg) no-repeat;
+    background-size: 100% 250px; 
+  }
+  .body-dark-mode {
+    background: var(--VeryDarkBlue) url(./images/bg-mobile-dark.jpg) no-repeat; 
+    background-size: 100% 250px;
+  }
 }
