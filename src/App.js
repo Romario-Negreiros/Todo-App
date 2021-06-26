@@ -45,9 +45,8 @@ function App() {
       setToDo(getAllTasks)
     } else if (typeof (index) === 'string') {
       const getAllTasks = toDo.filter(v => {
-        if (v.checked === true) {
-          return false
-        } else return v
+        if (v.checked === true) return false
+        else return v
       })
       setToDo(getAllTasks)
     } else console.error('Parâmetro inválido')
@@ -102,7 +101,7 @@ function App() {
   })
 
   // React dnd functions
-  const onDragEnd = (result) => {
+  const onDragEnd = result => {
     try {
       const getAllTasks = [...toDo]
       const [removedElement] = getAllTasks.splice(result.source.index, 1)
@@ -119,7 +118,7 @@ function App() {
         <ul className="c-tasksList">
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="tasks">
-              {(provided) => (
+              {provided => (
                 <ul ref={provided.innerRef}
                   {...provided.droppableProps}>
                   {tasksList}

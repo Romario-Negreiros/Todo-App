@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 
 function InputTask(props) {
     const [value, setValue] = useState('')
-    const updateValue = event => {
-        setValue(event.target.value)
-    }    
+    const updateValue = event => setValue(event.target.value)    
     const getTaskKey = key => {
         if(key.charCode === 13) {
             props.sendTask(value)
