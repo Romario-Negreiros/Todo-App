@@ -6,6 +6,7 @@ import Header from './Header.js';
 import InputTask from './InputTask.js'
 import Task from './Task.js'
 import Manager from './Manager.js'
+import backToTop from './images/arrow-up.svg'
 
 
 function App() {

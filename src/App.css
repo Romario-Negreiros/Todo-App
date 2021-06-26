@@ -199,6 +199,7 @@
   color: var(--DarkGrayishBlue);
   font-weight: var(--W2);
 }
+
 .manager-actions p:hover, .manager-actions ~ p:hover {
   color: var(--VeryDarkGrayishBlue);
 }
