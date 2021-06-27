@@ -1,7 +1,7 @@
 # Frontend Mentor - Todo app
 - First time using react JS
 - Estimated date to finish: doing at least 1 hour everyday, on 30/06 it is over, I hope.
-- Deploy made on 26/06/2021 at 16:47, 4 days before the expected date 🙆‍♂️🙆‍♂️🙆‍♂️
+- Deploy made on 26/06/2021 at 16:47, 4 days before the expected date 🙆‍♂️🙆‍♂️
 
 ## Overview
 
