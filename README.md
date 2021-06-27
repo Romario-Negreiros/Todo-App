@@ -18,11 +18,12 @@ Users should be able to:
 - Clear all completed todos
 - Toggle light and dark mode
 - **Bonus**: Drag and drop to reorder items on the list
-- **Bonus**: Smooth alerts with [SweetAlert-v1](https://sweetalert.js.org/guides/)
+- **My Bonus**: See smooth alerts with [SweetAlert-v1](https://sweetalert.js.org/guides/) 
 
 ### Screenshot
 
 ![Mobile](./src/images/mobile.png)
+
 ![Desktop](./src/images/desktop.png)
 
 ### Links
@@ -45,15 +46,18 @@ Users should be able to:
 ### What I learned
 
 Some of the most important things I learned is how to use react hooks, as i am a newbie with react, it was a great practice for learning how to use the basics of this feature.
-I also learned how to add some other libraries to my projects, how to deploy and host my site, using [Vercel](https://vercel.com).
+I also learned how to add some other libraries to my projects, how to deploy and host my site, using vercel.
 
 ```html
 <h1>Coded with ❤ by Romario Negreiros</h1>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+### Useful resources
 
-Gonna end this readme soon 😁
+-  [Vercel](https://vercel.com) - This amazing site hosted my todo for free, and very simple to use.
+- [Tutorial](https://www.youtube.com/watch?v=TWTAuGEi6KU) - And this incredible tutorial helped me on how to use vercel, and deploy my project, but it's in Portuguese 🤷‍♂️
+
+## Author
+
+- Website - [Romario Negreiros]()
+- Frontend Mentor - [@Romario-Negreiros](https://www.frontendmentor.io/profile/Romario-Negreiros)
+- Github profile - [Romario-Negreiros](https://github.com/Romario-Negreiros)
