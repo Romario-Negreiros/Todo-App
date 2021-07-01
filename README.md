@@ -38,14 +38,14 @@ Users should be able to:
 - Semantic HTML5 markup
 - Flexbox
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
+- [React](https://reactjs.org/)
 - React Hooks
 - [React-beatiful-dnd](https://github.com/atlassian/react-beautiful-dnd) - Smooth and pretty drag and drop for react
-- [SweetAlert-v1](https://sweetalert.js.org/guides/) - JS library
+- [SweetAlert-v1](https://sweetalert.js.org/guides/)
 
 ### What I learned
 
-Some of the most important things I learned is how to use react hooks, as i am a newbie with react, it was a great practice for learning how to use the basics of this feature.
+Some of the most important things I learned is how to use react hooks, as I am a newbie with react, it was a great practice for manipulating the basics of this feature.
 I also learned how to add some other libraries to my projects, how to deploy and host my site, using vercel.
 
 ```html
@@ -53,7 +53,7 @@ I also learned how to add some other libraries to my projects, how to deploy and
 ```
 ### Useful resources
 
--  [Vercel](https://vercel.com) - This amazing site hosted my todo for free, and very simple to use.
+-  [Vercel](https://vercel.com) - This amazing site hosted my todo for free, and is pretty simple to use.
 - [Tutorial](https://www.youtube.com/watch?v=TWTAuGEi6KU) - And this incredible tutorial helped me on how to use vercel, and deploy my project, but it's in Portuguese 🤷‍♂️
 
 ## Author
